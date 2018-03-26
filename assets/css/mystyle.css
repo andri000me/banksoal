@@ -1,0 +1,247 @@
+body{
+	background-color: #F4F4F4;
+}
+
+label,.f-label{
+	color: #2A7575;
+}
+
+select option{
+	color: #555;
+}
+
+select option:first-child{
+	display: none;
+	color: #999;
+}
+
+@font-face{
+	font-family: 'DKButterflyBall';
+	src: url('../font/DK-Butterfly-Ball.otf');
+}
+
+.form-control{
+	border-radius: 3px;
+}
+
+.form-control:focus{
+	border-color: #3BA2A2;
+}
+
+.f-content{
+	min-height: 515px;
+}
+
+.f-cmod{
+	float: none;
+}
+
+.f-header{
+	background-color: #3BA2A2;
+	-webkit-box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+	-moz-box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+	box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+}
+
+.f-footer{
+	text-align: center;
+	background-color: #3FB0B1;
+	-webkit-box-shadow: 0px -7px 20px -6px rgba(0,0,0,0.51);
+	-moz-box-shadow: 0px -7px 20px -6px rgba(0,0,0,0.51);
+	box-shadow: 0px -7px 20px -6px rgba(0,0,0,0.51);
+}
+
+.f-htop{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.f-hbottom{
+	background-color: #3FB0B1;
+	text-align: center;
+	min-height: 35px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.f-clogo{
+	text-align: right;
+}
+
+.f-logo{
+	font-family:'DKButterflyBall',sans-serif;
+	font-size: 35px;
+	text-decoration: none;
+	color: white;
+}
+
+.f-logo:hover{
+	color: #D4D0D0;	
+}
+
+.f-csearch{
+	margin-top: 5px;
+}
+
+.f-searchbox{
+	width: 75%;
+	border-top-right-radius: none; 
+	border-top-left-radius: 3px;
+	border-bottom-right-radius: none;
+	border-bottom-left-radius: 3px;
+	border: 0px;
+	height: 35px;
+	padding: 6px 12px;
+	vertical-align: middle;
+}
+
+.f-searchbox:focus{
+	outline: none;
+}
+
+.f-searchbtn{
+	width: 20%;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 0px;
+	height: 35px;
+	border: 0px;
+	background-color: #ECECEC;
+	color: #3BA2A2;
+}
+
+.f-searchbtn:hover{
+	background-color: #2A7575;
+	color: black;
+}
+
+.btn:focus{
+	background-color: #2A7575;
+	color:white;
+}
+
+.f-logbtn{
+	background-color: #ECECEC;
+	color: #3BA2A2;	
+	font-weight: bold;
+}
+
+.f-logbtn:hover{
+	background-color: #2A7575;
+	color: white;
+}
+
+.f-btn-war{
+	background-color: #EF9200;
+	color: white;
+	font-weight: bold;
+}
+
+.f-btn-war:hover{
+	background-color: #2A7575;
+	color: white;
+}
+
+.f-mbtn{
+	color: white;
+	font-weight: bold;
+}
+
+.f-socialbtn{
+	border: 0px;
+}
+
+.f-mbtn:hover{
+	background-color: #2A7575;
+	color: white;
+}
+
+.f-clog{
+	margin-top: 5px;
+	text-align: left;
+}
+
+.f-hbox{
+	background-color: #3FB0B1;
+	color: white;
+}
+
+.inner>h3{
+	font-size: 2vw;
+}
+
+.inner>p{
+	font-size: 14px;
+}
+
+.f-catlabel{
+	color: #3BA2A2;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	background-color: white;
+	text-align: center;
+	-webkit-box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+	-moz-box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+	box-shadow: 0px 7px 20px -6px rgba(0,0,0,0.51);
+	box-sizing: 1;
+}
+
+.f-blackblue{
+	color: #2A7575;
+}
+
+.f-red{
+	color: #CA2525;
+}
+
+.f-bgred{
+	background-color: #CA2525;
+}
+
+.f-blue{
+	color: #39397F;
+}
+
+.f-bgblue{
+	background-color: #39397F;
+}
+
+.f-grey{
+	color: #427798;
+}
+
+.f-bggrey{
+	background-color: #427798;
+}
+
+.icon{
+	box-sizing: 2;
+}
+
+.f-cbtnall{
+	margin-top: -15px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.f-btnall{
+	background-color: #3FB0B1;
+	color: #FFF;	
+	font-weight: bold;
+	border-radius: 2px;
+}
+
+.f-btnall:hover{
+	background-color: #2A7575;
+	color: white;
+}
+
+.f-cmall{
+	margin-top: 5px;
+}
+
+.tablepress-id-1 tr:hover{
+	cursor: pointer;
+}
+
