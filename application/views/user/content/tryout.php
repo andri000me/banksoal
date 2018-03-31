@@ -3,7 +3,7 @@
 
 	<div class="col-lg-8">
 	<div class="col-lg-12">
-	<?php 
+	<?php
 		$mtr=$matter->row();
 	?>
 		<form action="<?php echo base_url('tryout'); ?>" method="post">
@@ -14,12 +14,12 @@
 					<h4 class="f-blackblue"><?php echo $mtr->name_mtr; ?></h4>
 				</center>
 				</div>
-				
+
 				<div class="col-lg-12">
 	          	<dl class="dl-horizontal">
 				    <dt class="f-label">Aturan Penilaian</dt>
 				    <dd>
-				    	<?php 
+				    	<?php
 				    	if($mtr->role_type==1){
 				    		echo "Ujian Nasional";
 				    	}else if($mtr->role_type==2){
@@ -29,7 +29,7 @@
 				    </dd>
 				    <dt class="f-label">Tingkat Pendidikan</dt>
 				    <dd>
-				    	<?php 
+				    	<?php
 				    	 if($mtr->edu_lv==1){
 				    	 	echo "SD/Sederajatnya";
 				    	 }else if($mtr->edu_lv==2){
@@ -63,15 +63,15 @@
 				?>
 				<div class="col-lg-12" style="margin-top: 10px;">
 					<div class="col-lg-1" align="right"><?php echo $no; ?>. </div>
-					<div class="col-lg-11"><?php echo $row->text_qst; ?></div>	
+					<div class="col-lg-11"><?php echo $row->text_qst; ?></div>
 				</div>
-				<div class="pilihan" style="display:none;"><?php echo $this->encrypt->encode($row->id_qst); ?></div>
-				<?php		
+				<div class="pilihan" style="display:none;"><?php echo encrypt_url($row->id_qst); ?></div>
+				<?php
 				}
 			}else{
 				?>
 				<center>
-					<a href="<?php echo base_url('tryout/'.$this->encrypt->encode($mtr->id_mtr,'Tub3sPr0mn3t(2)')) ?>" class="btn btn-md f-btnall">Mulai Sekarang</a>
+					<a href="<?php echo base_url('tryout/'.encrypt_url($mtr->id_mtr)) ?>" class="btn btn-md f-btnall">Mulai Sekarang</a>
 				</center>
 				<?php
 			}
@@ -80,11 +80,11 @@
 
             </div><!-- /.box-body -->
             <div class="box-footer" align="center">
-            	<a href="<?php echo base_url('tryout/'.$this->encrypt->encode($mtr->id_mtr,'Tub3sPr0mn3t(2)'.'/1')) ?>" class="btn btn-sm f-btnall">Coba Ujian</a>
-            	<a href="<?php echo base_url('see-matter/'.$this->encrypt->encode($mtr->id_mtr,'Tub3sPr0mn3t(2)')) ?>" class="btn btn-sm f-btnall">Lihat Soal</a>
+            	<a href="<?php echo base_url('tryout/'.encrypt_url($mtr->id_mtr.'/1')) ?>" class="btn btn-sm f-btnall">Coba Ujian</a>
+            	<a href="<?php echo base_url('see-matter/'.encrypt_url($mtr->id_mtr)) ?>" class="btn btn-sm f-btnall">Lihat Soal</a>
             	<a href="#" class="btn btn-sm f-btnall" disabled>Lihat Pembahasan</a>
             <?php if($subpage=='mulaisekarang'){ ?>
-            	<input type="hidden" name="id_mtr" value="<?php echo $this->encrypt->encode($mtr->id_mtr); ?>">
+            	<input type="hidden" name="id_mtr" value="<?php echo encrypt_url($mtr->id_mtr); ?>">
             	<input type="submit" name="lihathasil" value="Lihat Hasil" class="btn btn-sm f-btnall">
             <?php } ?>
             </div><!-- /.box-footer -->

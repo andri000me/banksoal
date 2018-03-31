@@ -35,7 +35,7 @@
               <?php foreach ($matter->result() as $row) {?>
                 <tr>
                   <td><?php echo $row->name_mtr ?></td>
-                  <td class="jml-soal"><span style="display: none;"><?php echo $this->encrypt->encode($row->id_mtr); ?></span></td>
+                  <td class="jml-soal"><span style="display: none;"><?php echo encrypt_url($row->id_mtr); ?></span></td>
                   <td><?php echo $row->created ?></td>
                   <td><?php echo $row->kd_matter ?></td>
                   <td><span class="waktu"><?php echo $row->mach_time ?></span></td>

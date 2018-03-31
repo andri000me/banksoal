@@ -39,14 +39,14 @@
 					<div class="icon">
 					  <i class="glyphicon glyphicon-pencil"></i>
 					</div>
-					<a href="<?php echo base_url('matter-description/'.$this->encrypt->encode($row->id_mtr,'Tub3sPr0mn3t(2)')); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?php echo base_url('matter-description/'.encrypt_url($row->id_mtr)); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<?php
 		} ?>
 
 		<div class="col-lg-12 f-cbtnall">
-			<a href="<?php echo base_url('see-all').'/'.$this->encrypt->encode('1'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
+			<a href="<?php echo base_url('see-all').'/'.encrypt_url('1'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
 		</div>
 	</div>
 	<div class="col-lg-1"></div>
@@ -93,14 +93,14 @@
 					<div class="icon">
 					  <i class="glyphicon glyphicon-pencil"></i>
 					</div>
-					<a href="<?php echo base_url('matter-description/'.$this->encrypt->encode($row->id_mtr,'Tub3sPr0mn3t(2)')); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?php echo base_url('matter-description/'.encrypt_url($row->id_mtr)); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<?php
 		} ?>
 
 		<div class="col-lg-12 f-cbtnall">
-			<a href="<?php echo base_url('see-all').'/'.$this->encrypt->encode('2'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
+			<a href="<?php echo base_url('see-all').'/'.encrypt_url('2'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
 		</div>
 	</div>
 	<div class="col-lg-1"></div>
@@ -147,14 +147,14 @@
 					<div class="icon">
 					  <i class="glyphicon glyphicon-pencil"></i>
 					</div>
-					<a href="<?php echo base_url('matter-description/'.$this->encrypt->encode($row->id_mtr,'Tub3sPr0mn3t(2)')); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?php echo base_url('matter-description/'.encrypt_url($row->id_mtr)); ?>" class="small-box-footer">Lihat Soal <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<?php
 		} ?>
 
 		<div class="col-lg-12 f-cbtnall">
-			<a href="<?php echo base_url('see-all').'/'.$this->encrypt->encode('3'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
+			<a href="<?php echo base_url('see-all').'/'.encrypt_url('3'); ?>" class="btn btn-sm f-btnall">Lihat Semua</a>
 		</div>
 	</div>
 	<div class="col-lg-1"></div>

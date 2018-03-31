@@ -1,13 +1,12 @@
 <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
- 
- class Admin extends CI_Controller 
+
+ class Admin extends CI_Controller
  {
  	public function __construct()
  	{
  		parent::__construct();
  		$this->load->library('form_validation');
- 		$this->load->library('encrypt');
 
  		$this->load->helper('string');
 
@@ -15,7 +14,7 @@
  		$this->load->model('m_user');
  		$this->load->model('m_matter');
  	}
- 	
+
  	public function index()
  	{
  		$this->check_login();
@@ -66,7 +65,7 @@
 				$pass=$this->input->post('pass');
 
 				$admin=$this->m_admin->get_all_Email($mail);
-				
+
 				if($admin->num_rows()==1){
 					$adm=$admin->row();
 
@@ -124,7 +123,7 @@
  		$data['admin']=$this->m_admin->get_all_ID($this->session->userdata('id_adm'));
 
 		$data['page']='account';
- 		$this->load->view('admin/page',$data);	
+ 		$this->load->view('admin/page',$data);
 	}
 
 	public function matter(){
@@ -132,11 +131,11 @@
 
 		//need in head
  		$data['admin']=$this->m_admin->get_all_ID($this->session->userdata('id_adm'));
- 		
+
  		$data['matter']=$this->m_matter->get_all();
 
 		$data['page']='matter';
- 		$this->load->view('admin/page',$data);		
+ 		$this->load->view('admin/page',$data);
 	}
 
 	public function user(){
@@ -144,10 +143,10 @@
 
 		//need in head
  		$data['admin']=$this->m_admin->get_all_ID($this->session->userdata('id_adm'));
- 		
+
  		$data['user']=$this->m_user->get_all();
 
 		$data['page']='user';
- 		$this->load->view('admin/page',$data);		
-	}	
+ 		$this->load->view('admin/page',$data);
+	}
  }

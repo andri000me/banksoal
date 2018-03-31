@@ -1,4 +1,4 @@
-<?php 
+<?php
 	if($mode==1){
 		$teks="Sekolah Dasar";
 	}else if($mode==2){
@@ -20,7 +20,7 @@
 
 <div class="row f-cmall">
 	<div class="col-lg-1"></div>
-	<div class="col-lg-10">		
+	<div class="col-lg-10">
   		<div class="col-md-12">
         <div class="box box-solid">
           <div class="box-header with-border">
@@ -36,7 +36,7 @@
                   <th>Tahun</th>
                   <th>Kode</th>
                   <th>Waktu</th>
-                  <?php 
+                  <?php
                     if($mode==0){?>
                       <th>Action</th>
                       <?php
@@ -47,16 +47,16 @@
               <tbody>
               <?php foreach ($matter->result() as $row) {?>
                 <tr>
-              		<td><a href="<?php echo base_url('matter-description').'/'.$this->encrypt->encode($row->id_mtr,'Tub3sPr0mn3t(2)'); ?>"></a><?php echo $row->name_mtr ?></td>
-              		<td class="jml-soal"><span style="display: none;"><?php echo $this->encrypt->encode($row->id_mtr); ?></span></td>
+              		<td><a href="<?php echo base_url('matter-description').'/'.encrypt_url($row->id_mtr); ?>"></a><?php echo $row->name_mtr ?></td>
+              		<td class="jml-soal"><span style="display: none;"><?php echo encrypt_url($row->id_mtr); ?></span></td>
                   <td><?php echo $row->created ?></td>
               		<td><?php echo $row->kd_matter ?></td>
               		<td><span class="waktu"><?php echo $row->mach_time ?></span></td>
-                  <?php 
+                  <?php
                     if($mode==0){?>
                       <td>
-                      <a href="<?php echo base_url('matter-details/'.$this->encrypt->encode($row->id_mtr)) ?>" class="btn btn-xs f-btnall">Edit</a>
-                      <a href="<?php echo base_url('delete-matter/'.$this->encrypt->encode($row->id_mtr)) ?>" class="btn btn-xs f-btnall">Hapus</a>
+                      <a href="<?php echo base_url('matter-details/'.encrypt_url($row->id_mtr)) ?>" class="btn btn-xs f-btnall">Edit</a>
+                      <a href="<?php echo base_url('delete-matter/'.encrypt_url($row->id_mtr)) ?>" class="btn btn-xs f-btnall">Hapus</a>
                       </td>
                       <?php
                     }
@@ -67,7 +67,7 @@
             </table>
           </div><!-- /.box-body -->
         </div><!-- /.box -->
-      </div><!-- ./col -->		
+      </div><!-- ./col -->
 	</div>
 	<div class="col-lg-1"></div>
 </div>

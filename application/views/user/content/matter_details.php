@@ -8,7 +8,7 @@
 			<div class="col-lg-12">
 			<center>
 				<h4 class="f-blackblue"><?php echo $mtr->name_mtr; ?></h4>
-				<a href="<?php echo base_url('edit/'.$this->encrypt->encode($mtr->id_mtr)); ?>" class="btn btn-xs f-btnall">Edit</a>
+				<a href="<?php echo base_url('edit/'.encrypt_url($mtr->id_mtr)); ?>" class="btn btn-xs f-btnall">Edit</a>
 			</center>
 			</div>
 
@@ -16,7 +16,7 @@
 			  <dl class="dl-horizontal">
 			    <dt class="f-label">Aturan Penilaian</dt>
 			    <dd>
-			    	<?php 
+			    	<?php
 			    	if($mtr->role_type==1){
 			    		echo "Ujian Nasional";
 			    	}else if($mtr->role_type==2){
@@ -26,7 +26,7 @@
 			    </dd>
 			    <dt class="f-label">Tingkat Pendidikan</dt>
 			    <dd>
-			    	<?php 
+			    	<?php
 			    	 if($mtr->edu_lv==1){
 			    	 	echo "SD/Sederajatnya";
 			    	 }else if($mtr->edu_lv==2){
@@ -58,7 +58,7 @@
 		    <div class="col-lg-12 pertanyaan">
 		   	<div class="col-lg-10 box">
 		    	<form role="form" id="tambah-pertanyaan" method="post" action="<?php echo base_url('save-question') ?>" enctype="multipart/form-data">
-					
+
 					<!-- Add Teks Pertanyaan -->
 					<!-- Add Format Nomor -->
 					<!-- Add Kunci Jawaban -->
@@ -74,7 +74,7 @@
 		            </div>
 
 		            <div class="form-group">
-		             	<input type="hidden" name="id_mtr" value="<?php echo $this->encrypt->encode($mtr->id_mtr) ?>" required>
+		             	<input type="hidden" name="id_mtr" value="<?php echo encrypt_url($mtr->id_mtr) ?>" required>
 						<input type="hidden" name="id_qst" value="" readonly="readonly">
 			        	<button type="submit" name="simpan" value="Simpan" class="btn btn-sm f-btnall">Simpan</button>
 			          	<button type="button" name="batal" value="Batal" class="btn btn-sm f-btnall" onclick="pertanyaanX()">Batal</button>
@@ -94,7 +94,7 @@
 					  </tr>
 					</thead>
 					<tbody>
-					<?php 
+					<?php
 						$no=1;
 						foreach ($question->result() as $qst) {?>
 							<tr>
@@ -112,11 +112,11 @@
 									?>
 								</td>
 								<td>
-									<button type="button" class="btn btn-xs" onclick="editSoal('<?php echo $this->encrypt->encode($qst->id_qst);?>')">Edit</button>
-									<button type="button" class="btn btn-xs" onclick="hapusSoal('<?php echo base_url('delete-question/'.$this->encrypt->encode($mtr->id_mtr).'/'.$this->encrypt->encode($qst->id_qst)) ?>')">Hapus</button>
+									<button type="button" class="btn btn-xs" onclick="editSoal('<?php echo encrypt_url($qst->id_qst);?>')">Edit</button>
+									<button type="button" class="btn btn-xs" onclick="hapusSoal('<?php echo base_url('delete-question/'.encrypt_url($mtr->id_mtr).'/'.encrypt_url($qst->id_qst)) ?>')">Hapus</button>
 								</td>
-							</tr>		
-						<?php 
+							</tr>
+						<?php
 						$no++;
 					} ?>
 					</tbody>

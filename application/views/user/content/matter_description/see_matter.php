@@ -7,7 +7,7 @@
 		<div class="col-lg-1" align="right"><?php echo $no; ?>. </div>
 		<div class="col-lg-11"><?php echo $row->text_qst; ?></div>	
 	</div>
-	<div class="pilihan" style="display:none;"><?php echo $this->encrypt->encode($row->id_qst); ?></div>
+	<div class="pilihan" style="display:none;"><?php echo encrypt_url($row->id_qst); ?></div>
 	<?php		
 	}
 ?>

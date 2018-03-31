@@ -18,7 +18,7 @@
 		</div>
 		<div class="col-lg-3 f-clog">
 		<?php if($this->session->userdata('login_usr')){ ?>
-			<a href="<?php echo base_url('see-all').'/'.$this->encrypt->encode(0).'/'.$this->encrypt->encode($this->session->userdata('id_usr')); ?>" type="button" class="btn btn-sm btn-lg f-logbtn"><?php echo $this->session->userdata('fullname_usr'); ?></a>
+			<a href="<?php echo base_url('see-all').'/'.encrypt_url(0).'/'.encrypt_url($this->session->userdata('id_usr')); ?>" type="button" class="btn btn-sm btn-lg f-logbtn"><?php echo $this->session->userdata('fullname_usr'); ?></a>
 			<a href="<?php echo base_url('logout'); ?>" type="button" class="btn f-btn-war btn-sm btn-lg">Logout</a>
 		<?php }else{ ?>
 			<button type="button" class="btn btn-sm btn-lg f-logbtn" data-toggle="modal" data-target="#Daftar">Daftar</button>

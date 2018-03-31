@@ -1,17 +1,17 @@
 <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
- 
- class User extends CI_Controller 
+
+ class User extends CI_Controller
  {
  	public function __construct()
  	{
  		parent::__construct();
  		$this->load->library('form_validation');
 		$this->load->library('upload');
-		$this->load->library('encrypt');
 
 		$this->load->helper('captcha');
 		$this->load->helper('string');
+		$this->load->helper('url');
 
 		$this->load->model('m_user');
 		$this->load->model('m_matter');
@@ -19,7 +19,7 @@
 		$this->load->model('m_choice');
 		$this->load->model('m_featured_matter');
  	}
- 	
+
  	public function index()
  	{
  		//need any page
@@ -217,7 +217,7 @@
 				//echo validation_errors();
 			}
 		}else{
-			echo "Error 404!";	
+			echo "Error 404!";
 		}
 	}
 
@@ -394,7 +394,7 @@
 					$this->session->set_flashdata('pesan','Soal berhasil disimpan!');
 
 					$id_mtr=$this->m_matter->get_all_IDUsr_lim($id_usr,1)->row()->id_mtr;
-					redirect('matter-details/'.$this->encrypt->encode($id_mtr));
+					redirect('matter-details/'.encrypt_url($id_mtr));
 				}else{
 					echo validation_errors();
 				}
@@ -412,7 +412,7 @@
 
  	public function edit($id_mtr=NULL)
  	{
- 		$matter=$this->m_matter->get_all_ID($this->encrypt->decode($id_mtr));
+ 		$matter=$this->m_matter->get_all_ID(decrypt_url($id_mtr));
 
  		if($matter->num_rows()==1){
  			//need any page
@@ -422,14 +422,14 @@
 
 	 		$data['page']='edit';
 	 		$this->load->view('user/page',$data);
- 		}else{	
+ 		}else{
  			echo "Error 404!";
  		}
  	}
 
  	public function matter_details($id_mtr=NULL)
  	{
- 		$data['matter']=$this->m_matter->get_all_ID($this->encrypt->decode($id_mtr));
+ 		$data['matter']=$this->m_matter->get_all_ID(decrypt_url($id_mtr));
 
 	 	if($data['matter']->num_rows()==1){
 	 		$data['question']=$this->m_question->get_all_IDMtr($data['matter']->row()->id_mtr);
@@ -516,7 +516,7 @@
  				(
  					'num_type'=>html_escape($this->input->post('format_no')),
  					'text_qst'=>$this->input->post('pertanyaan'),
- 					'id_mtr'=>$this->encrypt->decode(html_escape($this->input->post('id_mtr')))
+ 					'id_mtr'=>decrypt_url(html_escape($this->input->post('id_mtr')))
  				);
  				$this->m_question->set_all($data);
 
@@ -540,7 +540,7 @@
  				}
 
  				$this->session->set_flashdata('pesan','Pertanyaan berhasil disimpan!');
- 				$id_mtr=$this->encrypt->encode($data['id_mtr']);
+ 				$id_mtr=encrypt_url($data['id_mtr']);
 				redirect('matter-details/'.$id_mtr);
  			}
  			else
@@ -548,7 +548,7 @@
  				echo validation_errors();
  			}
  		}else{
- 			echo "Eror 404!";	
+ 			echo "Eror 404!";
  		}
  	}
 
@@ -613,7 +613,7 @@
 			$this->form_validation->set_rules($config);
 
 			if($this->form_validation->run()==TRUE)
-			{	
+			{
 				$id_qst=html_escape($this->input->post('id_qst'));
 				$data=array
 				(
@@ -646,7 +646,7 @@
 	 						'id_qst'=>$id_qst,
 	 						'score'=>$scr
 	 					);
- 						$this->m_choice->set_all($data_choice);	
+ 						$this->m_choice->set_all($data_choice);
 					}
 				}
 
@@ -669,7 +669,7 @@
 
  	public function delete_question($id_mtr=NULL,$id_qst=NULL)
  	{
- 		$id_qst=$this->encrypt->decode($id_qst);
+ 		$id_qst=decrypt_url($id_qst);
 
  		if($this->m_question->get_all_ID($id_qst)->num_rows()==1){
  			$this->m_question->delete_all($id_qst);
@@ -682,8 +682,8 @@
  	}
 
  	public function matter_description($id_mtr=NULL,$subpage=NULL)
- 	{	
- 		$id_mtr=$this->encrypt->decode($id_mtr,'Tub3sPr0mn3t(2)');
+ 	{
+ 		$id_mtr=decrypt_url($id_mtr);
  		$data['matter']=$this->m_matter->get_all_ID($id_mtr);
 
  		if($data['matter']->num_rows()==1){
@@ -714,7 +714,7 @@
 
 					if($this->form_validation->run()==TRUE)
 					{
-						$mtr=$this->m_matter->get_all_ID($this->encrypt->decode($this->input->post('id_mtr')))->row();
+						$mtr=$this->m_matter->get_all_ID(decrypt_url($this->input->post('id_mtr')))->row();
 			 			$question=$this->m_question->get_all_IDMtr($mtr->id_mtr);
 
 						$jml=0;
@@ -741,7 +741,7 @@
 					}
 		 		}else{
 		 			$data['matter']=$this->m_matter->get_all_ID($id_mtr);
-			 		$data['question']=$this->m_question->get_all_IDMtr($id_mtr); 		
+			 		$data['question']=$this->m_question->get_all_IDMtr($id_mtr);
 		 		}
 	 		}
 
@@ -753,9 +753,9 @@
  	}
 
  	public function see_all($mode=NULL,$id_usr=NULL)
- 	{	
- 		$mode=$this->encrypt->decode($mode);
- 		$id_usr=$this->encrypt->decode($id_usr);
+ 	{
+ 		$mode=decrypt_url($mode);
+ 		$id_usr=decrypt_url($id_usr);
 
  		if($this->input->post('cari')){
  			$data['matter']=$this->m_matter->get_all_like($this->input->post('kata_kunci'));
@@ -775,12 +775,12 @@
  	}
 
  	public function delete_matter($id_mtr=NULL){
- 		$id_mtr=$this->encrypt->decode($id_mtr);
+ 		$id_mtr=decrypt_url($id_mtr);
 
  		$this->m_matter->delete_all($id_mtr);
 
  		$this->session->set_flashdata('pesan','Pendaftaran berhasil!');
-		redirect('see_all/'.$this->encrypt->encode(0).'/'.$this->encrypt->encode($this->session->userdata('id_usr')));
+		redirect('see_all/'.encrypt_url(0).'/'.encrypt_url($this->session->userdata('id_usr')));
  	}
 
  	/**
@@ -807,25 +807,25 @@
 	 * JSON
 	 */
 	public function question_ID($id_qst=NULL){
-		$qst=$this->m_question->get_all_ID($this->encrypt->decode($id_qst))->row();
+		$qst=$this->m_question->get_all_ID(decrypt_url($id_qst))->row();
 
  		echo json_encode($qst);
 	}
 
 	public function n_question_IDMtr($id_mtr=NULL){
-		$qst=$this->m_question->get_all_IDMtr($this->encrypt->decode($id_mtr))->num_rows();
+		$qst=$this->m_question->get_all_IDMtr(decrypt_url($id_mtr))->num_rows();
 
  		echo json_encode($qst);
 	}
 
 	public function choice_IDQst($id_qst=NULL){
-		$chc=$this->m_choice->get_all_IDQst($this->encrypt->decode($id_qst))->result();
+		$chc=$this->m_choice->get_all_IDQst(decrypt_url($id_qst))->result();
 
  		echo json_encode($chc);
 	}
 
 	public function n_choice_IDQst($id_qst=NULL){
-		$chc=$this->m_choice->get_all_IDQst($this->encrypt->decode($id_qst))->num_rows();
+		$chc=$this->m_choice->get_all_IDQst(decrypt_url($id_qst))->num_rows();
 
  		echo json_encode($chc);
 	}
@@ -833,11 +833,5 @@
 	/**
 	 * Try some code here!
 	 */
-	public function coba($n=0){
-		echo $this->encrypt->encode(html_escape($n));
-	}
 
-	public function coba2($n=0){
-		echo $this->encrypt->decode(html_escape($n));
-	}
- } 
+ }
