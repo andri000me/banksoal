@@ -20,3 +20,6 @@ Source code BankSoal berasal dari Tugas Akhir Semester Mata Kuliah Pemrograman I
 
 ## Demo
 Untuk demo Banksoal dapat diakses melalui <a href="http://banksoal.mazovi.com">banksoal.mazovi.com</a>.
+
+## Maintain
+BankSoal tidak di-maintain sejak 5 Januari 2016.
